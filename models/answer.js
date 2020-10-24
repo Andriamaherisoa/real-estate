@@ -1,10 +1,13 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-var AnswerSchema = new Schema({
+/**
+ * Answer schema declaration
+ */
+const AnswerSchema = new Schema({
     text: String,
     assessment: {
-        type:mongoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Assessment'
     },    
 });

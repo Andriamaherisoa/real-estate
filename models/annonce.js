@@ -1,9 +1,12 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-var AssessmentSchema = require('./assessment').AssessmentSchema;
+const AssessmentSchema = require('./assessment').AssessmentSchema;
 
-var Annonce = new Schema({
+/**
+ * Annonce schema declaration
+ */
+const Annonce = new Schema({
     title: String,
     type: String,
     published: Boolean, // Oui ou non
