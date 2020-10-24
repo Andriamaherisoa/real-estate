@@ -1,0 +1,33 @@
+extends ../layout
+
+block content
+    div(class='container')
+        div(class='result')
+            h3(class='nb_result')
+                a(href="/", class="text-title")
+                    i(class='fa fa-arrow-left')
+                        strong #{annonces.length > 0 ? annonces.length: 'Aucun'} Resultats                         
+        div(class='row')        
+            a(class='pull-right btn btn-primary', href='/annonces/create') Ajouter une annonce
+        
+        div(class='row')        
+            div(class='container-fluid')
+                .row
+                    each annonce in annonces            
+                        .col        
+                            a(href=`/annonces/${annonce.id}`)
+                                img(class='img img-responsive', width='235', height='200', src='https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/suburban-house-royalty-free-image-1584972559.jpg?crop=1.00xw:0.752xh;0,0.120xh&resize=1200:*')
+                                if user !== undefined
+                                    div(class='action-container')
+                                        a(class='edit', href=`/annonces/${annonce.id}`)
+                                            i(class='fa fa-pencil')                        
+                                        span(class='delete')
+                                            i(class='fa fa-trash-alt')                        
+                                h3(class='ville')
+                                    strong #{annonce.title}
+                                h4(class='region') #{annonce.address} #{annonce.region}
+                                h5(class='price')
+                                    strong #{annonce.price} Euro
+                                p
+                                    a(href='#') Read More
+

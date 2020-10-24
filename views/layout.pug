@@ -1,0 +1,29 @@
+block variables
+ - var selected = "Home"
+
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous")
+    link(href='https://pro.fontawesome.com/releases/v5.10.0/css/all.css', rel='stylesheet', media='screen')
+    link(rel='stylesheet', href='/stylesheets/main.css')
+    link(rel='stylesheet', href='//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css')
+    link(rel='stylesheet', href='//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css')
+    title okta-express-login-portal: #{title}
+  body
+    div.top-bar.d-flex.flex-column.flex-md-row.align-items-center.p-3.px-md-4.mb-3.bg-white.border-bottom.box-shadow
+      h5.my-0.mr-md-auto.font-weight-normal
+        a(href="/", title="Expresso") M1 Iwocs
+      nav.my-2.my-md-0.mr-md-3
+        a.p-2.text-dark(href="/annonces", title="Home") Annonces
+
+        if user == undefined
+          a.p-2.text-dark(href="/login") Log In / Register
+        else          
+          a.p-2.text-dark(href="/logout") Logout
+    .container
+      block content
+
+    footer.
